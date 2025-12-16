@@ -1,6 +1,5 @@
 import User from "../model/userModel.js";
 
-
 const getAllUsers = async () => {
    const  res = await User.find({});
    return {
@@ -30,7 +29,17 @@ const createUser = async (userData) => {
     };
 };
 
+const getUserById = async(id)=>{
+    console.log("Repository - GetUserById:", id);
+    const user = await User.findById(id);
+    return user;    
+}
 
 
 
-export default { getAllUsers, createUser };
+
+
+
+
+
+export default { getAllUsers, createUser , getUserById };
