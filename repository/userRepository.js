@@ -36,10 +36,4 @@ const getUserById = async(id)=>{
 }
 
 
-
-
-
-
-
-
 export default { getAllUsers, createUser , getUserById };
