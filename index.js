@@ -3,12 +3,16 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import route from "./routes/userRoute.js";
+import authRoute from "./routes/authRoute.js";
 const app = express();
 app.use(bodyParser.json());
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const MONGOURL = process.env.MONGO_URI;
+
+app.use("/api/user", route);
+app.use("/api/auth", authRoute);
 
 mongoose
   .connect(MONGOURL)
@@ -20,5 +24,3 @@ mongoose
     })
   })
   .catch((error) => console.log(error));
-
-  app.use("/api/user", route);

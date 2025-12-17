@@ -21,7 +21,7 @@ export const getAllUsers = async (req, res) => {
   }
 };
 export const GetUserById = async (req, res)=>{
-  try{
+  try{ 
     const { _id } = req.body;
     console.log("Controller - GetUserById:", _id);
     const user = await userRepo.getUserById(_id);
